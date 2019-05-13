@@ -20,7 +20,7 @@ class TestUser(unittest.TestCase):
         '''
         self.assertEqual(self.new_user.username, "kuraoian")
         self.assertEqual(self.new_user.account, "Instagram")
-        self.assertEqual(self.new_user.password, "trudet")
+        self.assertEqual(self.new_user.password, "123")
 
     def test_save_user(self):
         '''
@@ -42,7 +42,7 @@ class TestUser(unittest.TestCase):
         '''
 
         self.new_user.save_user()
-        test_user = User("official_ian_ duncan", "Facebook", "trudet")
+        test_user = User("official_ian_ duncan", "Instagram", "123")
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
@@ -51,11 +51,31 @@ class TestUser(unittest.TestCase):
         test_delete_user to test if we can remove a user from object user_list
         '''
         self.new_user.save_user()
-        test_user = User("official_ian_ duncan", "Facebook", "trudet")
+        test_user = User("official_ian_duncan", "Instagram", "123")
         test_user.save_user()
 
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)
+
+    def test_find_user_by_account(self):
+        '''
+        test to check if we can find a user by account
+        '''
+
+        self.new_user.save_user()
+        test_user = User("official_ian_duncan", "Instagram", "123")
+        test_user.save_user()
+
+        found_user = User.find_by_account("Instagram")
+        self.assertEqual(found_user.account, test_user.account)
+
+   
+
+    def test_display_all_users(self):
+        '''
+        method that returns a list of all users saved
+        '''
+        self.assertEqual(User.display_users(),User.user_list)
 
 
 if __name__ == '__main__':
