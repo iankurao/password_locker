@@ -58,9 +58,6 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list),1)
 
     def test_find_user_by_account(self):
-        '''
-        test to check if we can find a user by account
-        '''
 
         self.new_user.save_user()
         test_user = User("official_ian_duncan", "Instagram", "123")
@@ -70,13 +67,15 @@ class TestUser(unittest.TestCase):
         self.assertEqual(found_user.account, test_user.account)
 
    
+    def test_user_exists(self):
+        self.new_user.save_user()
+        test_user = User("official_ian_duncan", "Instagram", "123")
+        test_user.save_user()
+        user_exists = User.user_exists("Instagram")
+        self.assertTrue(user_exists)
 
     def test_display_all_users(self):
-        '''
-        method that returns a list of all users saved
-        '''
         self.assertEqual(User.display_users(),User.user_list)
-
 
 if __name__ == '__main__':
     unittest.main()
