@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 from passwords import User
 import random
+from passwords import Credentials
 from getpass import getpass
 
 def create_user(username, account,password):
@@ -40,4 +41,18 @@ def display_users():
     Function that returns all saved users
     '''
     return User.display_users()
+
+ 
+def save_password(credentials):
+    '''
+    Function that saves new password
+    '''
+    return credentials.save_password()
+
+def generate_password():
+    '''
+    Function that generates a password for the user
+    '''
+    return Credentials.generatePassword()
+   
 
