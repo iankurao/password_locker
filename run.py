@@ -166,11 +166,12 @@ def main():
                                     print("That account does not exist")
 
                     elif short_code == "ex":
-                            print("Bye .......")
+                            print("Good bye lad")
                             break
                     else:
-                            print("Invalid input. Please try again")
+                            print("Invalid input. Please try again!")
             break
 if __name__ == '__main__':
     main()
+
 
