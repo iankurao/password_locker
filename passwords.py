@@ -36,3 +36,10 @@ class User:
         for details in cls.user_list:
             if details.account == account:
                 return details
+                
+    @classmethod
+    def display_users(cls):
+        '''
+        Method that displays all users
+        '''
+        return cls.user_list
