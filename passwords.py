@@ -57,3 +57,6 @@ class User:
     def display_users(cls):
 
         return cls.user_list
+
+
+class Credentials: 
